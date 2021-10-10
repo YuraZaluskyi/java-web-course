@@ -11,5 +11,4 @@ public class Message {
 
   private String name = "There is no name";
   private String message = "There is no message";
-
 }

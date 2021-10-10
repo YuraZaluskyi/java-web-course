@@ -1,5 +1,4 @@
 package com.bobocode.servlet;
-
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -14,27 +13,22 @@ import java.util.List;
 import java.util.stream.Collectors;
 import lombok.SneakyThrows;
 import org.codehaus.jackson.map.ObjectMapper;
-
 @WebServlet("/message")
 public class MessageServlet extends HttpServlet {
-
   private Message message = new Message();
   private ObjectMapper objectMapper = new ObjectMapper();
-
   @Override
   protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
     PrintWriter writer = resp.getWriter();
-
     writer.println("NAME - " + message.getName() + " ----- " + "MESSAGE - " + message.getMessage());
   }
-
   @Override
   protected void doPost(HttpServletRequest req, HttpServletResponse resp)
       throws ServletException, IOException {
     Message message = readMessageFrom(req);
+    System.out.println(message);
     this.message = message;
   }
-
   @SneakyThrows
   private Message readMessageFrom(HttpServletRequest req) {
     BufferedReader reader = req.getReader();
