@@ -54,7 +54,7 @@ public class NoteController {
   }
 
   @PostMapping
-  public String addNote(@RequestBody Note note) {
+  public String addNote(Note note) {
     notes.add(note);
     return "redirect:/notes";
   }
