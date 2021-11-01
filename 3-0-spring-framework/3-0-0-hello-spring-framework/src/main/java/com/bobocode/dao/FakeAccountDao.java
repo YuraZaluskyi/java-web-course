@@ -5,6 +5,8 @@ import com.bobocode.model.Account;
 
 import java.util.List;
 import java.util.stream.Stream;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import static java.util.stream.Collectors.toList;
 
@@ -16,9 +18,11 @@ import static java.util.stream.Collectors.toList;
  * Its bean is called "accountDao". And it uses constructor with explicit autowired annotation in order to inject
  * {@link TestDataGenerator} instance.
  */
+@Component("accountDao")
 public class FakeAccountDao implements AccountDao {
     private List<Account> accounts;
 
+    @Autowired
     public FakeAccountDao(TestDataGenerator testDataGenerator) {
         this.accounts = Stream.generate(testDataGenerator::generateAccount)
                 .limit(20)
