@@ -1,11 +1,13 @@
 package com.bobocode.config;
 
+import com.bobocode.controller.HelloJspController;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 public class DispatcherServletConfig extends AbstractAnnotationConfigDispatcherServletInitializer {
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class[0];
+
+        return new Class[]{HelloJspController.class};
     }
 
     @Override
