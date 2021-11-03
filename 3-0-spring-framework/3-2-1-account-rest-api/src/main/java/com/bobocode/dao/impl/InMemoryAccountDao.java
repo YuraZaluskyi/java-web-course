@@ -8,12 +8,14 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import org.springframework.stereotype.Component;
 
 /**
  * {@link AccountDao} implementation that is based on {@link java.util.HashMap}.
  * <p>
  * todo: 1. Configure a component with name "accountDao"
  */
+@Component
 public class InMemoryAccountDao implements AccountDao {
     private Map<Long, Account> accountMap = new HashMap<>();
     private long idSequence = 1L;
