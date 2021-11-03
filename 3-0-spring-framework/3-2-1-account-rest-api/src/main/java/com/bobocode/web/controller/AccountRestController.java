@@ -3,6 +3,7 @@ package com.bobocode.web.controller;
 import com.bobocode.dao.AccountDao;
 import com.bobocode.model.Account;
 import java.util.List;
+import java.util.Objects;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -53,13 +54,16 @@ public class AccountRestController {
 
   @PostMapping
   @ResponseStatus(HttpStatus.CREATED)
-  public void createAccount(@RequestBody Account account) {
-    accountDao.save(account);
+  public Account createAccount(@RequestBody Account account) {
+    return accountDao.save(account);
   }
 
   @PutMapping("/{id}")
   @ResponseStatus(HttpStatus.NO_CONTENT)
-  public void updateAccount(Account account) {
+  public void updateAccount(@PathVariable Long id, @RequestBody Account account) {
+    if (!Objects.equals(id, account.getId())) {
+      throw new IllegalStateException();
+    }
     accountDao.save(account);
   }
 
