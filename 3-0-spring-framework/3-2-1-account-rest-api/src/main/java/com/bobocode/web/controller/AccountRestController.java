@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -52,18 +53,19 @@ public class AccountRestController {
 
   @PostMapping
   @ResponseStatus(HttpStatus.CREATED)
-  public Long createAccount(Account account) {
+  public void createAccount(@RequestBody Account account) {
     accountDao.save(account);
-    return account.getId();
   }
 
-  @PutMapping
+  @PutMapping("/{id}")
+  @ResponseStatus(HttpStatus.NO_CONTENT)
   public void updateAccount(Account account) {
     accountDao.save(account);
   }
 
-  @DeleteMapping
-  public void deleteAccount(Account account) {
-    accountDao.remove(account);
+  @DeleteMapping("/{id}")
+  @ResponseStatus(HttpStatus.NO_CONTENT)
+  public void deleteAccount(@PathVariable Long id) {
+    accountDao.remove(accountDao.findById(id));
   }
 }
