@@ -17,6 +17,7 @@
         <module>4-0-spring-boot-rest-api</module>
         <module>5-0-spring-boot-rest-client</module>
         <module>lesson-demo</module>
+        <module>spring-servlet-context</module>
     </modules>
 
     <properties>
