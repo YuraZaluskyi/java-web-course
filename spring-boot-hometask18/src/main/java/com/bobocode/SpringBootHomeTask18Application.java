@@ -12,6 +12,7 @@ public class SpringBootHomeTask18Application {
   public static void main(String[] args) {
     var context = SpringApplication.run(SpringBootHomeTask18Application.class, args);
     final HelloService helloService = context.getBean(HelloService.class);
-    helloService.greeting("     Hello everybody!    ", "    new String    ", 123);
+    System.out.println(
+        helloService.greeting("     Hello everybody!    ", "    new String    ", 123));
   }
 }

@@ -28,6 +28,10 @@ public class TrimmedAnnotationBeanPostProcessor implements BeanPostProcessor {
           args[i] = ((String) args[i]).trim();
         }
       }
+      Class<?> returnType = method.getReturnType();
+      if (returnType.equals(String.class)) {
+        return proxy.invokeSuper(obj, args).toString().trim();
+      }
       return proxy.invokeSuper(obj, args);
     };
     enhancer.setCallback(interceptor);
