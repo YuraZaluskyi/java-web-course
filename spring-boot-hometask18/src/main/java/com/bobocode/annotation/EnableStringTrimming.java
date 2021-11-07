@@ -1,6 +1,6 @@
 package com.bobocode.annotation;
 
-import com.util.StringTrimmingConfig;
+import com.util.StringTrimmingConfiguration;
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Import;
 
 @Target(value = ElementType.TYPE)
 @Retention(value = RetentionPolicy.RUNTIME)
-@Import(StringTrimmingConfig.class)
+@Import(StringTrimmingConfiguration.class)
 public @interface EnableStringTrimming {
 
 }
