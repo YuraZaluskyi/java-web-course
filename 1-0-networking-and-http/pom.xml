@@ -12,6 +12,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>1-0-0-hello-network-socket</module>
+        <module>1-0-1-find-lagest-picture</module>
     </modules>
 
     <dependencies>
